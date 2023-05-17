@@ -1,10 +1,42 @@
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Label, TextInput } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 
 const Register = () => {
     return (
-        <div>
-            <form className="flex flex-col gap-4">
+        <div className="container mx-auto pexfont">
+              <h2 className="text-center text-5xl hexfont mt-20 text-blue-700">Register</h2>
+            <form className="flex flex-col gap-4 w-3/4 mx-auto">
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="name"
+                            value="Your name"
+                        />
+                    </div>
+                    <TextInput
+                        id="name"
+                        type="name"
+                        placeholder="Enter Your Name"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="photo"
+                            value="Your photo"
+                        />
+                    </div>
+                    <TextInput
+                        id="photo"
+                        type="photo"
+                        placeholder="Enter Your URL"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -15,7 +47,7 @@ const Register = () => {
                     <TextInput
                         id="email2"
                         type="email"
-                        placeholder="name@flowbite.com"
+                        placeholder="Enter Your Email"
                         required={true}
                         shadow={true}
                     />
@@ -30,6 +62,7 @@ const Register = () => {
                     <TextInput
                         id="password2"
                         type="password"
+                        placeholder="Enter Your Password"
                         required={true}
                         shadow={true}
                     />
@@ -43,25 +76,20 @@ const Register = () => {
                     </div>
                     <TextInput
                         id="repeat-password"
+                        placeholder="Enter Your Repeat Password"
                         type="password"
                         required={true}
                         shadow={true}
                     />
                 </div>
-                <div className="flex items-center gap-2">
-                    <Checkbox id="agree" />
-                    <Label htmlFor="agree">
-                        I agree with the
-                        <a
-                            href="/forms"
-                            className="text-blue-600 hover:underline dark:text-blue-500"
-                        >
-                            terms and conditions
-                        </a>
-                    </Label>
+                <div>
+                <p>Already a member?<Link to='/login'> <span className="text-blue-600 font-bold">Login</span></Link></p>
                 </div>
                 <Button type="submit">
                     Register new account
+                </Button>
+                <Button className="bg-red-600" type="submit">
+                    Google
                 </Button>
             </form>
         </div>

@@ -15,7 +15,7 @@ const Header = () => {
                         className="mr-3 h-6 sm:h-9"
                         alt="toy ghor"
                     />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold hexfont text-3xl text-blue-700 dark:text-white">
+                    <span className="self-center whitespace-nowrap font-semibold hexfont text-3xl text-blue-700 dark:text-white">
                         Toy Ghor
                     </span>
                 </Navbar.Brand>
@@ -27,11 +27,8 @@ const Header = () => {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link
-                        href="/navbars"
-                        active={true}
-                    >
-                        Home
+                    <Navbar.Link active={true}>
+                       <Link to='/'><button> Home</button></Link>
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">
                     All Toys

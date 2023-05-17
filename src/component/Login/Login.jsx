@@ -1,9 +1,10 @@
 import { Button, Label, TextInput } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto pexfont">
             <form className="flex flex-col gap-4 w-3/4 mx-auto">
                 <h2 className="text-center text-5xl hexfont mt-20 text-blue-700">Login</h2>
                 <div>
@@ -38,8 +39,14 @@ const Login = () => {
                         shadow={true}
                     />
                 </div>
+                <div>
+                    <p>Not a member yet? <Link to='/register'><span className="text-blue-600 font-bold">Join now</span></Link></p>
+                </div>
                 <Button type="submit">
                     Login
+                </Button>
+                <Button className="bg-red-600" type="submit">
+                    Google
                 </Button>
             </form>
         </div>
