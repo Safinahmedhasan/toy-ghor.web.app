@@ -3,9 +3,9 @@ import { Button, Label, TextInput } from "flowbite-react";
 
 const Login = () => {
     return (
-        <div>
-            <form className="flex flex-col gap-4">
-                <h2>Login</h2>
+        <div className="container mx-auto">
+            <form className="flex flex-col gap-4 w-3/4 mx-auto">
+                <h2 className="text-center text-5xl hexfont mt-20 text-blue-700">Login</h2>
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -16,7 +16,8 @@ const Login = () => {
                     <TextInput
                         id="email2"
                         type="email"
-                        placeholder="name@flowbite.com"
+                        placeholder="Enter Your Email"
+                        name="email"
                         required={true}
                         shadow={true}
                     />
@@ -31,20 +32,8 @@ const Login = () => {
                     <TextInput
                         id="password2"
                         type="password"
-                        required={true}
-                        shadow={true}
-                    />
-                </div>
-                <div>
-                    <div className="mb-2 block">
-                        <Label
-                            htmlFor="repeat-password"
-                            value="Repeat password"
-                        />
-                    </div>
-                    <TextInput
-                        id="repeat-password"
-                        type="password"
+                        name="password"
+                        placeholder="Enter Your Password"
                         required={true}
                         shadow={true}
                     />
