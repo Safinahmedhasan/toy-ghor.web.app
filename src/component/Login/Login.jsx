@@ -3,9 +3,23 @@ import { Link } from "react-router-dom";
 
 
 const Login = () => {
+
+    const handleLogin = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        const login = {email, password}
+        console.log(login);
+    }
+
+
+
     return (
         <div className="container mx-auto pexfont">
-            <form className="flex flex-col gap-4 w-3/4 mx-auto">
+            <form onSubmit={handleLogin} className="flex flex-col gap-4 w-3/4 mx-auto">
                 <h2 className="text-center text-5xl hexfont mt-20 text-blue-700">Login</h2>
                 <div>
                     <div className="mb-2 block">

@@ -3,10 +3,27 @@ import { Link } from "react-router-dom";
 
 
 const Register = () => {
+
+
+
+    const handleRegister = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const repeatPassword = form.repeatPassword.value;
+
+        const register = {name, email, password, repeatPassword, photo }
+        console.log(register);
+    }
+
     return (
         <div className="container mx-auto pexfont">
               <h2 className="text-center text-5xl hexfont mt-20 text-blue-700">Register</h2>
-            <form className="flex flex-col gap-4 w-3/4 mx-auto">
+            <form onSubmit={handleRegister} className="flex flex-col gap-4 w-3/4 mx-auto">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -17,6 +34,7 @@ const Register = () => {
                     <TextInput
                         id="name"
                         type="name"
+                        name="name"
                         placeholder="Enter Your Name"
                         required={true}
                         shadow={true}
@@ -32,6 +50,7 @@ const Register = () => {
                     <TextInput
                         id="photo"
                         type="photo"
+                        name="photo"
                         placeholder="Enter Your URL"
                         required={true}
                         shadow={true}
@@ -47,6 +66,7 @@ const Register = () => {
                     <TextInput
                         id="email2"
                         type="email"
+                        name="email"
                         placeholder="Enter Your Email"
                         required={true}
                         shadow={true}
@@ -62,6 +82,7 @@ const Register = () => {
                     <TextInput
                         id="password2"
                         type="password"
+                        name="password"
                         placeholder="Enter Your Password"
                         required={true}
                         shadow={true}
@@ -76,6 +97,7 @@ const Register = () => {
                     </div>
                     <TextInput
                         id="repeat-password"
+                        name="repeatPassword"
                         placeholder="Enter Your Repeat Password"
                         type="password"
                         required={true}
