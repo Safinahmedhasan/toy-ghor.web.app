@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { Link } from "react-router-dom";
 
 
 
@@ -21,7 +22,7 @@ const ShopByCatagory = () => {
 
     return (
         <div className="container mx-auto">
-            <h2>Toy Catagory</h2>
+            <h2 className="text-4xl hexfont text-center mt-20 mb-5 text-blue-600 ">Toy Catagory</h2>
             <Tabs>
                 <div className="text-center">
                     <TabList>
@@ -44,7 +45,8 @@ const ShopByCatagory = () => {
                                             <p>Price: {car.price}</p>
                                             <p className="flex items-center">Rating:  <Rating style={{ maxWidth: 100 }} value={car.rating} readOnly /></p>
                                             <div>
-                                                <Button>View Details</Button>
+                                               
+                                                <Link to={`/cardetails/${car._id}`}><Button>View Details</Button></Link>
                                             </div>
                                         </Card>
                                     </div>

@@ -5,7 +5,7 @@ import './Gallery.css'
 const Gallary = () => {
     return (
         <div className='container mx-auto rounded-xl '>
-            <h2 className='text-4xl hexfont text-center mt-16 mb-5 text-blue-600 '>Toy Gallery</h2>
+            <h2 className='text-4xl hexfont text-center mt-20 mb-5 text-blue-600 '>Toy Gallery</h2>
             <div className='border border-blue-600 rounded-lg p-5'>
                 <Carousel cols={3} rows={2} gap={10} loop >
                     <Carousel.Item>

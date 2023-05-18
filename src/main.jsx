@@ -11,6 +11,8 @@ import Header from './component/Header/Header';
 import Register from './component/Register/Register';
 import Login from './component/Login/Login';
 import AuthProvider from './component/provider/AuthProvider';
+import ShopByDetails from './component/ShopByDetails/ShopByDetails';
+import NotFound from './component/NotFound/NotFound';
 
 
 const router = createBrowserRouter([
@@ -33,8 +35,17 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
-      }
+      },
+      {
+        path: '/cardetails/:_Id',
+        element: <ShopByDetails></ShopByDetails>,
+        loader: ({ params }) => fetch(`carTab.json/${params._Id}`)
+      },
     ],
+  },
+  {
+    path:'/*',
+    element: <NotFound></NotFound>
   }
 ]);
 
