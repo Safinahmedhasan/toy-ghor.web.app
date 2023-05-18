@@ -1,0 +1,50 @@
+{
+  "tab1": [
+    {
+      "_id": "1",
+      "name": "Red Racer",
+      "price": "$19.99",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/stnFr5m/41-J8-NHDH7-HL.jpg"
+    },
+    {
+      "_id": "2",
+      "name": "Blue Thunder",
+      "price": "$24.99",
+      "rating": 4.2,
+      "image": "https://i.ibb.co/XWHKyHx/jmovyww0op1cdd8fgvdg-1445x.webp"
+    }
+  ],
+  "tab2": [
+    {
+      "_id": "3",
+      "name": "Green Machine",
+      "price": "$29.99",
+      "rating": 4.8,
+      "image": "https://i.ibb.co/ZS4KKqk/298541923-max.jpg"
+    },
+    {
+      "_id": "4",
+      "name": "Yellow Speedster",
+      "price": "$22.99",
+      "rating": 4.0,
+      "image": "https://i.ibb.co/Drtd4T5/2297777c-5967-4830-9886-f63479ee2a37-bafd67d758e760090bdbc1768eefcc78.jpg"
+    }
+  ],
+  "tab3": [
+    {
+      "_id": "5",
+      "name": "Purple Cruiser",
+      "price": "$27.99",
+      "rating": 4.6,
+      "image": "https://i.ibb.co/yf0SGSM/image.jpg"
+    },
+    {
+      "_id": "6",
+      "name": "Orange Rocket",
+      "price": "$21.99",
+      "rating": 4.3,
+      "image": "https://i.ibb.co/kBSRbHn/d9d18e3e-46b4-457a-9967-98b44ec06e19-1-ef25166c775b82f0828683c5369875fd.webp"
+    }
+  ]
+}
