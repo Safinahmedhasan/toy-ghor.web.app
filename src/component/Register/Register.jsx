@@ -1,9 +1,12 @@
 import { Button, Label, TextInput } from "flowbite-react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
 
+    const {createUser} = useContext(AuthContext);
 
 
     const handleRegister = event => {
@@ -14,10 +17,28 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        const repeatPassword = form.repeatPassword.value;
+        const confirm = form.confirm.value;
 
-        const register = {name, email, password, repeatPassword, photo }
-        console.log(register);
+        if(password !== confirm){
+            alert('Password Not Match!!');
+            return
+        }
+        else if(password.length < 6){
+            alert('Password is less than 6 characters!!');
+            return
+        }
+
+
+        createUser(email, password, photo, name)
+            .then(result => {
+                const createUser = result.user;
+                alert(' Great!! Successfully registration ❤️ Login now ')
+                console.log(createUser);
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Already Have an account! Login NOW')
+            })
     }
 
     return (
@@ -97,7 +118,7 @@ const Register = () => {
                     </div>
                     <TextInput
                         id="repeat-password"
-                        name="repeatPassword"
+                        name="confirm"
                         placeholder="Enter Your Repeat Password"
                         type="password"
                         required={true}

@@ -9,17 +9,17 @@ const Footer = () => {
                     <img src="https://i.ibb.co/n6bHc9v/logo.png" alt="" />
                 </div>
                 <div>
-                    <h2 className="text-xl text-[#6B7280] font-bold">ABOUT</h2>
+                    <h2 className="text-xl text-[#6B7280] font-bold mb-4">ABOUT</h2>
                     <p className="text-[#858A96]">Feedback</p>
                     <p className="text-slate-400">Feedback</p>
                 </div>
                 <div>
-                <h2 className="text-slate-500 text-xl font-bold">FOLLOW US</h2>
+                <h2 className="text-slate-500 text-xl font-bold mb-4">FOLLOW US</h2>
                 <p className="text-slate-400">Facebook</p>
                 <p className="text-slate-400">Instagram</p>
                 </div>
                 <div>
-                <h2 className="text-slate-500 text-xl font-bold">LEGAL</h2>
+                <h2 className="text-slate-500 text-xl font-bold mb-4">LEGAL</h2>
                 <p className="text-slate-400">Privacy Policy</p>
                 <p className="text-slate-400">Terms & Conditions</p>
                 </div>

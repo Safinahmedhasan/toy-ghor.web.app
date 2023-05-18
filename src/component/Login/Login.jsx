@@ -1,18 +1,31 @@
 import { Button, Label, TextInput } from "flowbite-react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
 
+
+    const { signIn } = useContext(AuthContext);
+
+
     const handleLogin = event => {
         event.preventDefault();
-
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
-        const login = {email, password}
-        console.log(login);
+
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                alert('succes')
+            })
+            .catch(error => console.log(error)
+            )
     }
 
 
