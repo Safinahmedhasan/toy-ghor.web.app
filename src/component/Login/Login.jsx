@@ -7,7 +7,19 @@ import { AuthContext } from "../provider/AuthProvider";
 const Login = () => {
 
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn , googleSignIn} = useContext(AuthContext);
+
+    const handleGoogleSignIn = async () =>{
+        googleSignIn(googleSignIn)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            alert(' Great!! Successfully registration ❤️ Login now ')
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
 
     const handleLogin = event => {
@@ -72,7 +84,7 @@ const Login = () => {
                 <Button type="submit">
                     Login
                 </Button>
-                <Button className="bg-red-600" type="submit">
+                <Button  onClick={handleGoogleSignIn} className="bg-red-600" type="submit">
                     Google
                 </Button>
             </form>

@@ -1,4 +1,4 @@
-import { Button, Dropdown, Navbar } from "flowbite-react";
+import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -16,6 +16,8 @@ const Header = () => {
 
     return (
         <div className="container mx-auto">
+
+
             <Navbar
                 fluid={true}
                 rounded={true}
@@ -32,11 +34,15 @@ const Header = () => {
                         </span>
                     </Navbar.Brand>
                 </Link>
+
                 <div className="flex md:order-2">
                     {
                         user ?
-
-                            <Dropdown label="profile">
+                            <Dropdown
+                                arrowIcon={false}
+                                inline={true}
+                                label={<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
+                            >
                                 <Dropdown.Header>
                                     <span className="block text-sm">
                                         {user?.displayName}
@@ -46,24 +52,19 @@ const Header = () => {
                                     </span>
                                 </Dropdown.Header>
                                 <Dropdown.Item >
-                                    Added Toy
+                                    My Toy
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    My Toy
+                                    Add a Toy
                                 </Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item>
                                     <button onClick={handleLogOut}> Sign out</button>
                                 </Dropdown.Item>
-                            </Dropdown>
-
-
-                            :
-                            <Link to='/login'><Button>
+                            </Dropdown> : <Link to='/login'><Button>
                                 Login
                             </Button></Link>
                     }
-
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
@@ -78,8 +79,8 @@ const Header = () => {
                             <div className="md:mr-5"><Navbar.Link href="/navbars">
                                 My Toys
                             </Navbar.Link></div>
-                            <Navbar.Link href="/navbars">
-                                Add A Toy
+                            <Navbar.Link>
+                                <Link to='/addtoy'>Add a Toy</Link>
                             </Navbar.Link>
                         </div>
                     }
@@ -88,6 +89,8 @@ const Header = () => {
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
+
+
         </div>
     );
 };

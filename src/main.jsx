@@ -13,6 +13,7 @@ import Login from './component/Login/Login';
 import AuthProvider from './component/provider/AuthProvider';
 import ShopByDetails from './component/ShopByDetails/ShopByDetails';
 import NotFound from './component/NotFound/NotFound';
+import AddAToy from './component/AddAToy/AddAToy';
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         element: <ShopByDetails></ShopByDetails>,
         loader: ({ params }) => fetch(`carTab.json/${params._Id}`)
       },
+      {
+        path: '/addtoy',
+        element: <AddAToy></AddAToy>
+      }
     ],
   },
   {

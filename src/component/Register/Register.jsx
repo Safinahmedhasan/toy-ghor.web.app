@@ -6,7 +6,20 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser , googleSignIn} = useContext(AuthContext);
+
+
+    const handleGoogleSignIn = async () =>{
+        googleSignIn(googleSignIn)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            alert(' Great!! Successfully registration ❤️ Login now ')
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
 
     const handleRegister = event => {
@@ -131,7 +144,7 @@ const Register = () => {
                 <Button type="submit">
                     Register new account
                 </Button>
-                <Button className="bg-red-600" type="submit">
+                <Button  onClick={handleGoogleSignIn} className="bg-red-600" type="submit">
                     Google
                 </Button>
             </form>
