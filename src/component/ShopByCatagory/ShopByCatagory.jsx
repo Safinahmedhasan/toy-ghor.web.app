@@ -1,17 +1,21 @@
-import { Card } from "flowbite-react";
+import { Button, Card } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
 
 
 const ShopByCatagory = () => {
     const [carData, setCarData] = useState([]);
+    // const [rating, setRating] = useState(4);
 
     useEffect(() => {
         fetch("carTab.json")
-            .then((response) => response.json())
+            .then((res) => res.json())
             .then((data) => setCarData(data))
-            .catch((error) => console.log("Error fetching car data:", error));
+            .catch((data) => setCarData(data));
     }, []);
 
 
@@ -21,23 +25,27 @@ const ShopByCatagory = () => {
             <Tabs>
                 <div className="text-center">
                     <TabList>
-                        <Tab>Tab 1</Tab>
-                        <Tab>Tab 2</Tab>
-                        <Tab>Tab 3</Tab>
+                        
+                        <Tab>Sports Car</Tab>
+                        <Tab>Truck</Tab>
+                        <Tab>Police Car</Tab>
                     </TabList>
                 </div>
 
                 {Object.keys(carData).map((tabKey, tabIndex) => (
                     <TabPanel key={tabIndex}>
-                        <div className="flex justify-center gap-10">
+                        <div className="md:flex justify-center gap-10">
                             {carData[tabKey].map((car, carIndex) => (
                                 <div key={carIndex}>
-                                    <div className="max-w-sm">
-                                        <Card>
-                                            <img className="w-96" src={car.image} alt={car.name} />
+                                    <div className="max-w-sm  mx-auto p-2">
+                                        <Card className="">
+                                            <img className="w-96 h-80" src={car.image} alt={car.name} />
                                             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{car.name}</h5>
                                             <p>Price: {car.price}</p>
-                                            <p>Rating: {car.rating}</p>
+                                            <p className="flex items-center">Rating:  <Rating style={{ maxWidth: 100 }} value={car.rating} readOnly /></p>
+                                            <div>
+                                                <Button>View Details</Button>
+                                            </div>
                                         </Card>
                                     </div>
                                 </div>
