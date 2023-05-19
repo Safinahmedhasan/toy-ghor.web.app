@@ -1,8 +1,41 @@
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
+
 
 const AddAToy = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) =>
+        fetch('http://localhost:5000/toy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            });
+
+
+    // fetch('http://localhost:5000/toy' , {
+    //     method: 'POST',
+    //     headers: {
+    //         'content-type' : 'application/json'
+    //     },
+    //     body: JSON.stringify(data)
+    // })
+    // .then(res => res.json())
+    // .then(data =>{
+    //     console.log(data);
+    // })
 
     return (
         <div className="container mx-auto">
@@ -14,18 +47,18 @@ const AddAToy = () => {
                     <div className=" flex">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Toy Picture URL</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3" {...register("toyPhoto")} required/>
+                            <input className="border border-blue-600 w-full rounded-lg p-3" {...register("toyPhoto")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl ">Toy Name</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3"  {...register("toyName")}  required/>
+                            <input className="border border-blue-600 w-full rounded-lg p-3"  {...register("toyName")} required />
                         </div>
                     </div>
 
                     <div className=" flex mt-5">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Seller name</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3"  {...register("Seller")} required/>
+                            <input className="border border-blue-600 w-full rounded-lg p-3"  {...register("Seller")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Seller email </span>
@@ -39,7 +72,7 @@ const AddAToy = () => {
                     <div className="flex mt-5">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Available Quantity</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("AvailableQuantity")} required/>
+                            <input className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("AvailableQuantity")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Sub Category</span>
@@ -53,7 +86,7 @@ const AddAToy = () => {
                     <div className="flex mt-5">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Price</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("Price")} required/>
+                            <input className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("Price")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Rating</span>
@@ -69,13 +102,13 @@ const AddAToy = () => {
                         </div>
                     </div>
                     <div className="w-full mt-5">
-                        <span  className="text-blue-600 font-bold text-xl">Detail description</span>
-                        <input className=" border border-blue-600 w-full rounded-lg p-3" {...register("description")} required/>
+                        <span className="text-blue-600 font-bold text-xl">Detail description</span>
+                        <input className=" border border-blue-600 w-full rounded-lg p-3" {...register("description")} required />
                     </div>
                     <input className="w-full bg-blue-600 mt-10 text-white p-5 rounded-xl" type="submit" />
                 </div>
 
-                
+
             </form>
 
         </div>

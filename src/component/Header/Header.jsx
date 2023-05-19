@@ -68,11 +68,11 @@ const Header = () => {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link active={true}>
+                    <Navbar.Link>
                         <Link to='/'><button> Home</button></Link>
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">
-                        All Toys
+                       <Link to='/alltoy'> All Toys</Link>
                     </Navbar.Link>
                     {
                         user && <div className="md:flex">

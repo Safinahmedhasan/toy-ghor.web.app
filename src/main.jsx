@@ -14,6 +14,7 @@ import AuthProvider from './component/provider/AuthProvider';
 import ShopByDetails from './component/ShopByDetails/ShopByDetails';
 import NotFound from './component/NotFound/NotFound';
 import AddAToy from './component/AddAToy/AddAToy';
+import AllToy from './component/ALlToy/AllToy';
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
       {
         path: '/addtoy',
         element: <AddAToy></AddAToy>
+      },
+      {
+        path: '/alltoy',
+        element: <AllToy></AllToy>,
+        loader: () => fetch('http://localhost:5000/toy')
       }
     ],
   },
