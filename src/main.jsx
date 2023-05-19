@@ -17,6 +17,7 @@ import AddAToy from './component/AddAToy/AddAToy';
 import AllToy from './component/ALlToy/AllToy';
 import SingleToy from './component/SingleToy/SingleToy';
 import Blogs from './component/Blogs/Blogs';
+import Privet from './component/Route/Privet';
 
 
 const router = createBrowserRouter([
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/singletoy/:id',
-        element: <SingleToy></SingleToy>,
+        element: <Privet><SingleToy></SingleToy></Privet>,
         loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
       },
       {

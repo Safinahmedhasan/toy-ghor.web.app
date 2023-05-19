@@ -1,4 +1,4 @@
-import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
+import { Button, Navbar, Tooltip } from "flowbite-react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -38,30 +38,11 @@ const Header = () => {
                 <div className="flex md:order-2">
                     {
                         user ?
-                            <Dropdown
-                                arrowIcon={false}
-                                inline={true}
-                                label={<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
-                            >
-                                <Dropdown.Header>
-                                    <span className="block text-sm">
-                                        {user?.displayName}
-                                    </span>
-                                    <span className="block truncate text-sm font-medium">
-                                        {user.email}
-                                    </span>
-                                </Dropdown.Header>
-                                <Dropdown.Item >
-                                    My Toy
-                                </Dropdown.Item>
-                                <Dropdown.Item>
-                                    Add a Toy
-                                </Dropdown.Item>
-                                <Dropdown.Divider />
-                                <Dropdown.Item>
-                                    <button onClick={handleLogOut}> Sign out</button>
-                                </Dropdown.Item>
-                            </Dropdown> : <Link to='/login'><Button>
+                            // displayName
+                            <Tooltip content={user?.displayName}>
+                                <Button onClick={handleLogOut}> <img className="rounded-full w-5" src={user.photoURL} alt="" /><span className="ml-5">Log out</span></Button>
+                            </Tooltip>
+                            : <Link to='/login'><Button>
                                 Login
                             </Button></Link>
                     }

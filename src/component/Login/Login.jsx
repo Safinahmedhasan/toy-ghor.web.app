@@ -1,10 +1,15 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
 
     const { signIn , googleSignIn} = useContext(AuthContext);
@@ -13,8 +18,8 @@ const Login = () => {
         googleSignIn(googleSignIn)
         .then(result =>{
             const loggedUser = result.user;
-            console.log(loggedUser);
             alert(' Great!! Successfully registration ❤️ Login now ')
+            navigate(from, {replace: true})
         })
         .catch(error => {
             console.log(error);
@@ -35,6 +40,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 alert('succes')
+                navigate(form , {replace: true})
             })
             .catch(error => console.log(error)
             )
