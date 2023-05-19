@@ -14,7 +14,7 @@ const AddAToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.insertedId) {f
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Toy Added Successfully',
