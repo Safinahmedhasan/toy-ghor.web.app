@@ -72,7 +72,7 @@ const Header = () => {
                         <Link to='/'><button> Home</button></Link>
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">
-                       <Link to='/alltoy'> All Toys</Link>
+                        <Link to='/alltoy'> All Toys</Link>
                     </Navbar.Link>
                     {
                         user && <div className="md:flex">
@@ -84,8 +84,8 @@ const Header = () => {
                             </Navbar.Link>
                         </div>
                     }
-                    <Navbar.Link href="/navbars">
-                        Blogs
+                    <Navbar.Link>
+                        <Link to='/blog'>Blogs</Link>
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>

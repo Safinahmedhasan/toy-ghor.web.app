@@ -15,6 +15,8 @@ import ShopByDetails from './component/ShopByDetails/ShopByDetails';
 import NotFound from './component/NotFound/NotFound';
 import AddAToy from './component/AddAToy/AddAToy';
 import AllToy from './component/ALlToy/AllToy';
+import SingleToy from './component/SingleToy/SingleToy';
+import Blogs from './component/Blogs/Blogs';
 
 
 const router = createBrowserRouter([
@@ -51,6 +53,15 @@ const router = createBrowserRouter([
         path: '/alltoy',
         element: <AllToy></AllToy>,
         loader: () => fetch('http://localhost:5000/toy')
+      },
+      {
+        path: '/singletoy/:id',
+        element: <SingleToy></SingleToy>,
+        loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+      },
+      {
+        path: '/blog',
+        element: <Blogs></Blogs>
       }
     ],
   },
