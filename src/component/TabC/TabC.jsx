@@ -54,19 +54,18 @@ const TabC = () => {
                 </div>
             </div>
 
-            <div className='md:flex justify-center'>
-                {
-                    result?.map((ta) => (
-                        <SignleTab
+                <div className='grid md:grid-cols-3'>
+                    {
+                        result?.map((ta) => (
+                            <SignleTab
 
-                            key={ta._id}
-                            ta={ta}
+                                key={ta._id}
+                                ta={ta}
 
-                        ></SignleTab>
-                    ))
-                }
-            </div>
-
+                            ></SignleTab>
+                        ))
+                    }
+                </div>
         </div>
     );
 };

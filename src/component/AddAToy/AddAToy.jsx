@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const AddAToy = () => {
+
+    const { user } = useContext(AuthContext);
+    console.log(user);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) =>
         fetch('http://localhost:5000/toy', {
@@ -50,9 +56,9 @@ const AddAToy = () => {
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Seller email </span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3"
+                            <input defaultValue={user?.email} className="border border-blue-600 w-full rounded-lg p-3"
                                 {...register("mail", { required: "Email Address is required" })}
-                                aria-invalid={errors.mail ? "true" : "false"}
+                                aria-invalid={errors.mail ? "true" : "false"} 
                             />
                         </div>
                     </div>

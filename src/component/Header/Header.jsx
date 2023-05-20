@@ -57,8 +57,8 @@ const Header = () => {
                     </Navbar.Link>
                     {
                         user && <div className="md:flex">
-                            <div className="md:mr-5"><Navbar.Link href="/navbars">
-                                My Toys
+                            <div className="md:mr-5"><Navbar.Link>
+                               <Link to='/myToy'>My Toys</Link>
                             </Navbar.Link></div>
                             <Navbar.Link>
                                 <Link to='/addtoy'>Add a Toy</Link>

@@ -19,6 +19,8 @@ import SingleToy from './component/SingleToy/SingleToy';
 import Blogs from './component/Blogs/Blogs';
 import Privet from './component/Route/Privet';
 import SingleTabDetails from './component/SingleTabDetails/SingleTabDetails';
+import MyToy from './component/MyToy/MyToy';
+import MyToyDetails from './component/MyToyDetails/MyToyDetails';
 
 
 const router = createBrowserRouter([
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blogs></Blogs>
+      },
+      {
+        path: '/myToy',
+        element: <MyToy></MyToy>
+      },
+      {
+        path: '/myToyDetails',
+        element: <MyToyDetails></MyToyDetails>
       },
       {
         path: '/tabDetails/:id',

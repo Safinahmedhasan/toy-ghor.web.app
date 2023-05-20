@@ -1,16 +1,32 @@
 import { useLoaderData } from "react-router-dom";
 import AllToyStyle from "../AllToyStyle/AllToyStyle";
+import { useEffect, useState } from "react";
 
 
 
 const AllToy = () => {
 
     const allToy = useLoaderData();
-    console.log(allToy);
+    const [searchText, setSearchText] = useState("");
 
+
+    useEffect(() =>{
+        fetch(`http://localhost:5000/toySearchName/${searchText}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    },[])
+
+    const slicedProducts = allToy.slice(0, 4);
     return (
         <div className="container mx-auto">
             <h2 className="text-4xl hexfont text-center mt-20 mb-5 text-blue-600 ">Available Toy</h2>
+
+            <div>
+                <input onChange={(e) => setSearchText(e.target.value)} type="text" />
+
+            </div>
 
             <p>Total: {allToy.length}</p>
 
@@ -23,15 +39,16 @@ const AllToy = () => {
                     <h2>Quantity</h2>
                     <h2>Details</h2>
                 </div>
-                {
-                   allToy.map(toy => <AllToyStyle
-                    key={toy._id}
-                    toy={toy}
-                   ></AllToyStyle>)
-                }
+
+                {slicedProducts.map((toy) => (
+                    <AllToyStyle
+                        key={toy._id}
+                        toy={toy}
+                    />
+                ))}
             </div>
 
-           
+
         </div>
     );
 };
