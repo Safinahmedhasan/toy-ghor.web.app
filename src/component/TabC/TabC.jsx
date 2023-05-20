@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import './TabC.css'
 import SignleTab from '../SignleTab/SignleTab';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const TabC = () => {
     const [tab, setTab] = useState([])
@@ -8,6 +11,9 @@ const TabC = () => {
     const [result, setResult] = useState([]);
     console.log(result);
 
+    useEffect(() => {
+        AOS.init({ duration: 1000 }); // Initialize AOS with custom options if needed
+    }, []);
 
 
     useEffect(() => {
@@ -29,7 +35,7 @@ const TabC = () => {
         setActiveTab(tabName)
     }
     return (
-        <div className='container mx-auto'>
+        <div data-aos="fade-up" className='container mx-auto '>
             <div className='flex justify-center mt-10 mb-10 '>
                 <div onClick={() => handleTabClick("superCar")}
                     className={`text-white rounded-xl p-5 font-bold bg-blue-600 mr-5 border-none superCar ${activeTab == "superCar" ? "excss" : ""

@@ -5,6 +5,9 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from 'sweetalert2'
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -13,6 +16,10 @@ import Swal from 'sweetalert2'
 
 
 const SignleTab = ({ ta }) => {
+
+    useEffect(() => {
+        AOS.init({ duration: 1000 }); // Initialize AOS with custom options if needed
+    }, []);
 
     const { rating, Price, toyPhoto, toyName, _id } = ta || {}
 
@@ -31,7 +38,7 @@ const SignleTab = ({ ta }) => {
     }
 
     return (
-        <div>
+        <div data-aos="fade-down">
             <div className="ml-5 mt-5">
                 <Card>
                     <img className="h-80 w-96" src={toyPhoto} alt="" />

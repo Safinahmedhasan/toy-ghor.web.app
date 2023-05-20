@@ -1,17 +1,19 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
-import { AuthContext } from "../provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
-const AddAToy = () => {
+const ToyUpdate = () => {
 
-    const { user } = useContext(AuthContext);
+    const updateToy = useLoaderData();
+
+    const { AvailableQuantity, Price, Rating, Seller, SubCategory, description, mail, toyName, toyPhoto, _id } = updateToy;
+
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) =>
-        fetch('http://localhost:5000/toy', {
-            method: 'POST',
+        fetch(`http://localhost:5000/toy/${_id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -19,10 +21,10 @@ const AddAToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Toy Added Successfully',
+                        title: 'Updated!',
+                        text: 'Update Successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
@@ -30,9 +32,12 @@ const AddAToy = () => {
             });
 
 
+
+
+
     return (
         <div className="container mx-auto">
-            <h2 className="text-4xl hexfont text-center mt-20 mb-5 text-blue-600 ">Add Toy</h2>
+            <h2 className="text-4xl hexfont text-center mt-20 mb-5 text-blue-600 ">Update Toy</h2>
 
 
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -40,24 +45,24 @@ const AddAToy = () => {
                     <div className=" flex">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Toy Picture URL</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3" {...register("toyPhoto")} required />
+                            <input defaultValue={toyPhoto} className="border border-blue-600 w-full rounded-lg p-3" {...register("toyPhoto")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl ">Toy Name</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3"  {...register("toyName")} required />
+                            <input defaultValue={toyName} className="border border-blue-600 w-full rounded-lg p-3"  {...register("toyName")} required />
                         </div>
                     </div>
 
                     <div className=" flex mt-5">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Seller name</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3"  {...register("Seller")} required />
+                            <input defaultValue={Seller} className="border border-blue-600 w-full rounded-lg p-3"  {...register("Seller")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Seller email </span>
-                            <input defaultValue={user?.email} className="border border-blue-600 w-full rounded-lg p-3"
+                            <input defaultValue={mail} className="border border-blue-600 w-full rounded-lg p-3"
                                 {...register("mail", { required: "Email Address is required" })}
-                                aria-invalid={errors.mail ? "true" : "false"} 
+                                aria-invalid={errors.mail ? "true" : "false"}
                             />
                         </div>
                     </div>
@@ -65,11 +70,11 @@ const AddAToy = () => {
                     <div className="flex mt-5">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Available Quantity</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("AvailableQuantity")} required />
+                            <input defaultValue={AvailableQuantity} className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("AvailableQuantity")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Sub Category</span>
-                            <select className="w-full border-blue-600 rounded-lg p-3" {...register("SubCategory")} required>
+                            <select defaultValue={SubCategory} className="w-full border-blue-600 rounded-lg p-3" {...register("SubCategory")} required>
                                 <option value="superCar">super Car</option>
                                 <option value="truck">truck</option>
                                 <option value="policeCar">police Car</option>
@@ -79,7 +84,7 @@ const AddAToy = () => {
                     <div className="flex mt-5">
                         <div className="w-1/2">
                             <span className="text-blue-600 font-bold text-xl">Price</span>
-                            <input className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("Price")} required />
+                            <input defaultValue={Price} className="border border-blue-600 w-full rounded-lg p-3" type="number" {...register("Price")} required />
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Rating</span>
@@ -96,9 +101,9 @@ const AddAToy = () => {
                     </div>
                     <div className="w-full mt-5">
                         <span className="text-blue-600 font-bold text-xl">Detail description</span>
-                        <input className=" border border-blue-600 w-full rounded-lg p-3" {...register("description")} required />
+                        <input defaultValue={description} className=" border border-blue-600 w-full rounded-lg p-3" {...register("description")} required />
                     </div>
-                    <input className="w-full bg-blue-600 mt-10 text-white p-5 rounded-xl" type="submit" />
+                    <input className="w-full bg-blue-600 mt-10 text-white p-5 rounded-xl" type="submit"  />
                 </div>
 
 
@@ -108,4 +113,4 @@ const AddAToy = () => {
     );
 };
 
-export default AddAToy;
+export default ToyUpdate;

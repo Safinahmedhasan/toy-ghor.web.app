@@ -1,34 +1,43 @@
-import { useLoaderData } from "react-router-dom";
-import AllToyStyle from "../AllToyStyle/AllToyStyle";
 import { useEffect, useState } from "react";
+import AllToyStyle from "../AllToyStyle/AllToyStyle";
+import { Button } from "flowbite-react";
+
 
 
 
 const AllToy = () => {
-
-    const allToy = useLoaderData();
+    const [allToy, setAllToy] = useState([]);
     const [searchText, setSearchText] = useState("");
 
+    useEffect(() => {
+        fetch('http://localhost:5000/toy')
+            .then(res => res.json())
+            .then(data => {
+                setAllToy(data);
+            })
+    }, []);
 
-    useEffect(() =>{
+    const handleSearch = () => {
         fetch(`http://localhost:5000/toySearchName/${searchText}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                setAllToy(data);
+            })
+    }
 
-    const slicedProducts = allToy.slice(0, 4);
+
+    const displayedToys = allToy.slice(0, 20);
+
+
+
     return (
         <div className="container mx-auto">
             <h2 className="text-4xl hexfont text-center mt-20 mb-5 text-blue-600 ">Available Toy</h2>
 
-            <div>
-                <input onChange={(e) => setSearchText(e.target.value)} type="text" />
-
+            <div className="flex justify-end items-center mb-5">
+                <input placeholder="Search Toy" className="border border-blue-600 rounded-lg mr-3" onChange={(e) => setSearchText(e.target.value)} type="text" />{""}
+                <Button onClick={handleSearch}>Search</Button>
             </div>
-
-            <p>Total: {allToy.length}</p>
 
             <div>
                 <div className="flex justify-between container mx-auto font-bold p-5 bg-blue-400 rounded-lg">
@@ -40,15 +49,15 @@ const AllToy = () => {
                     <h2>Details</h2>
                 </div>
 
-                {slicedProducts.map((toy) => (
-                    <AllToyStyle
-                        key={toy._id}
-                        toy={toy}
-                    />
-                ))}
+
             </div>
 
-
+            {
+                displayedToys.map(toy => <AllToyStyle
+                    key={toy._id}
+                    toy={toy}
+                ></AllToyStyle>)
+            }
         </div>
     );
 };

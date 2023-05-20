@@ -21,6 +21,7 @@ import Privet from './component/Route/Privet';
 import SingleTabDetails from './component/SingleTabDetails/SingleTabDetails';
 import MyToy from './component/MyToy/MyToy';
 import MyToyDetails from './component/MyToyDetails/MyToyDetails';
+import ToyUpdate from './component/ToyUpdate/ToyUpdate';
 
 
 const router = createBrowserRouter([
@@ -55,13 +56,18 @@ const router = createBrowserRouter([
       },
       {
         path: '/alltoy',
-        element: <AllToy></AllToy>,
-        loader: () => fetch('http://localhost:5000/toy')
+        element: <AllToy></AllToy>
+        // loader: () => fetch('http://localhost:5000/toy')
+      },
+      {
+        path: '/update/:id',
+        element: <ToyUpdate></ToyUpdate>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
       },
       {
         path: '/singletoy/:id',
         element: <Privet><SingleToy></SingleToy></Privet>,
-        loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
       },
       {
         path: '/blog',
@@ -78,12 +84,12 @@ const router = createBrowserRouter([
       {
         path: '/tabDetails/:id',
         element: <Privet><SingleTabDetails></SingleTabDetails></Privet>,
-        loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`) 
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
       }
     ],
   },
   {
-    path:'/*',
+    path: '/*',
     element: <NotFound></NotFound>
   }
 ]);
