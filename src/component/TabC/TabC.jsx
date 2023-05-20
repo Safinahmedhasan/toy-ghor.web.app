@@ -21,7 +21,7 @@ const TabC = () => {
     useEffect(() => {
         const filteredTab = tab?.filter((ta) => ta.SubCategory === activeTab);
         setResult(filteredTab);
-      }, [tab, activeTab]);
+    }, [tab, activeTab]);
 
 
 
@@ -29,37 +29,40 @@ const TabC = () => {
         setActiveTab(tabName)
     }
     return (
-        <div>
-            <div onClick={() => handleTabClick("superCar")}
-                className={`tab tab2 superCar ${activeTab == "superCar" ? "excss" : ""
-                    }`}
-            >
-                Super Car
+        <div className='container mx-auto'>
+            <h2 className='text-4xl hexfont text-center mt-20 text-blue-600 '> Category</h2>
+            <div className='flex justify-center mt-10 mb-10 '>
+                <div onClick={() => handleTabClick("superCar")}
+                    className={`text-white p-5 bg-blue-600 mr-5 border-none superCar ${activeTab == "superCar" ? "excss" : ""
+                        }`}
+                >
+                    Super Car
+                </div>
+
+
+                <div onClick={() => handleTabClick("truck")}
+                    className={`text-white p-5 bg-blue-600 mr-5 border-none  truck ${activeTab == "truck" ? "excss" : ""
+                        }`}
+                >
+                    Truck
+                </div>
+
+                <div onClick={() => handleTabClick("policeCar")}
+                    className={`text-white p-5 bg-blue-600 mr-5 border-none  policeCar ${activeTab == "policeCar" ? "excss" : ""
+                        }`}
+                >
+                    Police Car
+                </div>
             </div>
 
-
-            <div onClick={() => handleTabClick("truck")}
-                className={`tab tab2 truck ${activeTab == "truck" ? "excss" : ""
-                    }`}
-            >
-                Truck
-            </div>
-
-            <div onClick={() => handleTabClick("policeCar")}
-                className={`tab tab2 policeCar ${activeTab == "policeCar" ? "excss" : ""
-                    }`}
-            >
-                Police Car
-            </div>
-
-            <div>
+            <div className='grid grid-cols-3 gap-10'>
                 {
                     result?.map((ta) => (
                         <SignleTab
 
-                        key={ta._id}
-                        ta={ta}
-                        
+                            key={ta._id}
+                            ta={ta}
+
                         ></SignleTab>
                     ))
                 }
