@@ -78,7 +78,7 @@ const AddAToy = () => {
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Rating</span>
-                            <select className="w-full border-blue-600 rounded-lg p-3" {...register("Rating")} required>
+                            <select className="w-full border-blue-600 rounded-lg p-3" {...register("rating")} required>
                                 <option value="5">5</option>
                                 <option value="4.5">4.5</option>
                                 <option value="4">4</option>

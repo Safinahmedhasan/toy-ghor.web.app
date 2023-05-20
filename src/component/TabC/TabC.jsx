@@ -23,17 +23,16 @@ const TabC = () => {
         setResult(filteredTab);
     }, [tab, activeTab]);
 
-
+    // <h2 className='text-4xl hexfont text-center mt-20 text-blue-600 '> Category</h2>
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName)
     }
     return (
         <div className='container mx-auto'>
-            <h2 className='text-4xl hexfont text-center mt-20 text-blue-600 '> Category</h2>
             <div className='flex justify-center mt-10 mb-10 '>
                 <div onClick={() => handleTabClick("superCar")}
-                    className={`text-white p-5 bg-blue-600 mr-5 border-none superCar ${activeTab == "superCar" ? "excss" : ""
+                    className={`text-white rounded-xl p-5 font-bold bg-blue-600 mr-5 border-none superCar ${activeTab == "superCar" ? "excss" : ""
                         }`}
                 >
                     Super Car
@@ -41,21 +40,21 @@ const TabC = () => {
 
 
                 <div onClick={() => handleTabClick("truck")}
-                    className={`text-white p-5 bg-blue-600 mr-5 border-none  truck ${activeTab == "truck" ? "excss" : ""
+                    className={`text-white font-bold rounded-xl p-5 bg-blue-600 mr-5 border-none  truck ${activeTab == "truck" ? "excss" : ""
                         }`}
                 >
                     Truck
                 </div>
 
                 <div onClick={() => handleTabClick("policeCar")}
-                    className={`text-white p-5 bg-blue-600 mr-5 border-none  policeCar ${activeTab == "policeCar" ? "excss" : ""
+                    className={`text-white font-bold rounded-xl p-5 bg-blue-600 mr-5 border-none  policeCar ${activeTab == "policeCar" ? "excss" : ""
                         }`}
                 >
                     Police Car
                 </div>
             </div>
 
-            <div className='grid grid-cols-3 gap-10'>
+            <div className='md:flex justify-center'>
                 {
                     result?.map((ta) => (
                         <SignleTab
