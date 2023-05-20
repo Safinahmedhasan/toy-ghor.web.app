@@ -2,9 +2,11 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import useTitle from "../Hooks/UseTitle";
 
 
 const Register = () => {
+    useTitle('Register')
 
     const {createUser , googleSignIn} = useContext(AuthContext);
 

@@ -2,9 +2,11 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import useTitle from "../Hooks/UseTitle";
 
 
 const Login = () => {
+    useTitle('Login')
 
     const navigate = useNavigate();
     const location = useLocation();

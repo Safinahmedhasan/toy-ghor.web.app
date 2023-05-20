@@ -16,6 +16,7 @@ import 'aos/dist/aos.css';
 
 
 const SignleTab = ({ ta }) => {
+    
 
     useEffect(() => {
         AOS.init({ duration: 1000 }); // Initialize AOS with custom options if needed

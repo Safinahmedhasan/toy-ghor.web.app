@@ -1,25 +1,25 @@
-import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './Banner.css'
+
+import { Carousel } from 'flowbite-react';
+
 
 const Banner = () => {
 
-    useEffect(() => {
-        AOS.init({ duration: 1000 }); // Initialize AOS with custom options if needed
-    }, []);
+
 
 
     return (
-        <div className="">
-            <section className="banner bg-cover bg-center">
-                <div className="container mx-auto text-center pt-28 w-2/3">
-                    <h1 className="text-4xl text-blue-800 font-bold mb-4" data-aos="fade-right"> Get ready to experience the thrill of the race with the Velocity Racer Super Car Toy</h1>
-                    <p data-aos="fade-left" className="text-lg text-gray-800 mb-8 font-bold">Take a Drive into Adventure with our Toy Cars</p>
-                    <a data-aos="fade-down" href="#" className="btn-primary">Learn More</a>
+        <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+            <Carousel>
+                <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                    <img  src="https://i.ibb.co/RbjcGxt/ng6m-Dwp-J9a-SAZYU2-Sgbwofjh35-Li8-Pd6f-Cdr4-Hc-Z.jpg" alt="" />
                 </div>
-            </section>
-
+                <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                    <img src="https://i.ibb.co/JKfkHz1/Banner-03-small.webp" alt="" />
+                </div>
+                <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+                    <img src="https://i.ibb.co/r44RRrQ/slider-default.webp" alt="" />
+                </div>
+            </Carousel>
         </div>
     );
 };

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import AllToyStyle from "../AllToyStyle/AllToyStyle";
 import { Button } from "flowbite-react";
+import useTitle from "../Hooks/UseTitle";
 
 
 
 
 const AllToy = () => {
+    useTitle('All Toy')
     const [allToy, setAllToy] = useState([]);
     const [searchText, setSearchText] = useState("");
 
