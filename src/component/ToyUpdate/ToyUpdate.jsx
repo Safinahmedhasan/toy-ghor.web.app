@@ -7,12 +7,12 @@ const ToyUpdate = () => {
 
     const updateToy = useLoaderData();
 
-    const { AvailableQuantity, Price, Rating, Seller, SubCategory, description, mail, toyName, toyPhoto, _id } = updateToy;
+    const { AvailableQuantity, Price, Seller, SubCategory, description, mail, toyName, toyPhoto, _id } = updateToy;
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) =>
-        fetch(`http://localhost:5000/toy/${_id}`, {
+        fetch(`https://toy-ghor-server.vercel.app/toy/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

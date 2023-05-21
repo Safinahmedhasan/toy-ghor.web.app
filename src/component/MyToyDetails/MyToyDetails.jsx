@@ -21,7 +21,7 @@ const MyToyDetails = ({ toy, setMyT, myT }) => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/toy/${_id}`, {
+                fetch(`https://toy-ghor-server.vercel.app/toy/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

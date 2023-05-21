@@ -62,12 +62,12 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <ToyUpdate></ToyUpdate>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-ghor-server.vercel.app/toy/${params.id}`)
       },
       {
         path: '/singletoy/:id',
         element: <Privet><SingleToy></SingleToy></Privet>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-ghor-server.vercel.app/toy/${params.id}`)
       },
       {
         path: '/blog',
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
       {
         path: '/tabDetails/:id',
         element: <Privet><SingleTabDetails></SingleTabDetails></Privet>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-ghor-server.vercel.app/toy/${params.id}`)
       }
     ],
   },

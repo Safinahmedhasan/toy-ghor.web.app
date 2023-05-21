@@ -12,7 +12,7 @@ useTitle('My Toy')
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToy/${user?.email}`)
+        fetch(`https://toy-ghor-server.vercel.app/myToy/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setMyT(data);
