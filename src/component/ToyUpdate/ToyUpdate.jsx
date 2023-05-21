@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const ToyUpdate = () => {
 
     const updateToy = useLoaderData();
+    console.log(updateToy);
 
     const { AvailableQuantity, Price, Seller, SubCategory, description, mail, toyName, toyPhoto, _id } = updateToy;
 
