@@ -8,7 +8,7 @@ const ToyUpdate = () => {
     const updateToy = useLoaderData();
     console.log(updateToy);
 
-    const { AvailableQuantity, Price, Seller, SubCategory, description, mail, toyName, toyPhoto, _id } = updateToy;
+    const { AvailableQuantity, Price, rating, Seller, SubCategory, description, mail, toyName, toyPhoto, _id } = updateToy;
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -89,7 +89,7 @@ const ToyUpdate = () => {
                         </div>
                         <div className="w-1/2 ml-5">
                             <span className="text-blue-600 font-bold text-xl">Rating</span>
-                            <select className="w-full border-blue-600 rounded-lg p-3" {...register("rating")} required>
+                            <select className="w-full border-blue-600 rounded-lg p-3" {...register("rating")}>
                                 <option value="5">5</option>
                                 <option value="4.5">4.5</option>
                                 <option value="4">4</option>
