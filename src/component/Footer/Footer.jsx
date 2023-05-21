@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='flex justify-between p-5'>
-                <h1 className='text-blue-600'>© 2023 Car Ghor</h1>
+                <h1 className='text-blue-600 text-sm'>© 2023 Car Ghor</h1>
                 <div className='flex'>
                     <span className='text-blue-600'><FaFacebookF /></span>
                     <span className='ml-3 text-red-500'><FaInstagram /></span>

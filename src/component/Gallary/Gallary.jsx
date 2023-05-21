@@ -1,43 +1,61 @@
-// import React from 'react'
-import Carousel from 'better-react-carousel'
-import './Gallery.css'
+
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+import AOS from 'aos';
 
 const Gallary = () => {
-    return (
-        <div className='container mx-auto rounded-xl '>
-            <h2 className='text-4xl hexfont text-center mt-20 mb-5 text-blue-600 '>Toy Gallery</h2>
-            <div className='border border-blue-600 rounded-lg p-5'>
-                <Carousel cols={3} rows={2} gap={10} loop >
-                    <Carousel.Item>
-                        <img className='rounded-xl' width="100%" src="https://i.ibb.co/1sM7sYj/wallpaperflare-com-wallpaper-8.jpg" />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className='rounded-xl' width="100%" src="https://i.ibb.co/t8LJ9P0/fdgfgd.jpg" />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div className='relative'>
-                            <img className='rounded-xl' width="100%" src="https://i.ibb.co/LvgCxSN/dfdf.jpg" />
-                            <div className='absolute bottom-0  text-center sfdfd container mx-auto'>
-                                <h2 className='text-white font-bold text-2xl'>Super Car</h2>
-                                <p>Take a Drive into Adventure with our Toy Cars</p>
-                            </div>
-                        </div>
 
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className='rounded-xl' width="100%" src="https://i.ibb.co/CzT42HL/wallpaperflare-com-wallpaper-9.jpg" />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className='rounded-xl' width="100%" src="https://i.ibb.co/pQrVy4X/35340998-studio-shot-of-red-blue-and-yellow-sports-cars.webp" />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className='rounded-xl h-60' width="100%" src="https://i.ibb.co/NNCW1fF/61rv-XPv-Qs-RL-SL1010.jpg" />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        {/* anything you want to show in the grid */}
-                    </Carousel.Item>
-                    {/* ... */}
-                </Carousel>
+    useEffect(() => {
+        AOS.init({ duration: 1000 }); // Initialize AOS with custom options if needed
+    }, []);
+
+    return (
+        <div>
+            <h2 className="text-4xl hexfont text-center mt-20 text-blue-600 ">Toy Gallery</h2>
+            <div className="container mx-auto px-5 py-2 lg:px-20 lg:pt-14">
+                <div className="-m-1 flex flex-wrap md:-m-2">
+                    <div className="flex w-1/2 flex-wrap">
+                        <div data-aos="zoom-in" className="w-1/2 p-1 md:p-2">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/Y79yNvM/giorgio-trovato-p0-Ol-RAAYXLY-unsplash-1.jpg" />
+                        </div>
+                        <div data-aos="zoom-in-up" className="w-1/2 p-1 md:p-2">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/zHVwF7v/gimmel-magaway-4-E0u7-Vsf-Gms-unsplash-1.jpg" />
+                        </div>
+                        <div data-aos="zoom-in" className="w-full p-1 md:p-2">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/fk8QqDr/gustavo-S-W9v-DL5wh-U-unsplash-1.jpg" />
+                        </div>
+                    </div>
+                    <div data-aos="zoom-in-up" className="flex w-1/2 flex-wrap">
+                        <div className="w-full p-1 md:p-2">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/42QCf06/giorgio-trovato-0-CZwu-Zhi-C84-unsplash-1.jpg" />
+                        </div>
+                        <div data-aos="zoom-in" className="w-1/2 p-1 md:p-2">
+                            <img 
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/PYjHHCF/nubia-navarro-rg7z-Bt2c-A-Q-unsplash.jpg" />
+                        </div>
+                        <div data-aos="zoom-in-up" className="w-1/2 p-1 md:p-2">
+                        <img 
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/Jz4bP9L/eric-nopanen-Euf-Bd-G-ZQMs-unsplash.jpg" />
+                                
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
